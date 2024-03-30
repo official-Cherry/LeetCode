@@ -26,7 +26,7 @@ public:
         int cur_leading = 0;
         int remainder = 0;
         
-        // 둘 중 한 리스트가 끝날 때까지 (맨 마지막 노드는 더해지지 않은 상태로 끝남)
+        // 둘 중 한 리스트가 끝날 때까지 
         while(true) 
         {
             // 더하기            
@@ -53,31 +53,39 @@ public:
 
         }
 
+        // 두 리스트의 길이가 같아 끝난 경우라면 
         if(l1->next == nullptr && l2->next == nullptr)
         {
+            // prev_leading 을 확인한 후, 존재한다면 새로운 노드 생성
             if(prev_leading !=0) {
                 result->next = new ListNode(prev_leading);
                 result = result->next;
             }
+            // 결과 반환 
             return dummyNode->next;
         }
 
         // l1이 끝난 경우 
         else if(l1->next == nullptr)
         {
+            // 포인터 옮겨주고 시작하기 
             l2 = l2->next;
             while(true)
             {
+                // 더하기
                 sum = l2->val + prev_leading;
                 remainder = sum%10;
                 cur_leading = sum/10;
                 result->next = new ListNode(remainder);
                 result = result->next;
 
+                // 올림 수 갱신 
                 prev_leading = cur_leading;
                 cur_leading = 0;
 
+                // 마지막 노드라면,
                 if(l2->next == nullptr) {
+                    // 올림 수 확인하고 존재한다면 새로운 노드 생성
                     if (prev_leading !=0) {
                         result->next = new ListNode(prev_leading);
                         result = result->next;
@@ -92,19 +100,23 @@ public:
         // l2가 끝난 경우 
         else if(l2->next == nullptr)
         {
+            // 포인터 옮겨주고 시작하기 
             l1 = l1->next;
             while(true)
             {
+                // 더하기 
                 sum = l1->val + prev_leading;
                 remainder = sum%10;
                 cur_leading = sum/10;
                 result->next = new ListNode(remainder);
                 result = result->next;
 
+                // 올림 수 갱신 
                 prev_leading = cur_leading;
                 cur_leading = 0;
 
                 if(l1->next == nullptr) {
+                    // 올림 수 확인하고 존재한다면 새로운 노드 생성
                     if (prev_leading !=0) {
                         result->next = new ListNode(prev_leading);
                         result = result->next;
