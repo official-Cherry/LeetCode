@@ -1,3 +1,7 @@
+// Approach : Sorting (Time : O(nlogn) Space : O(1))
+// O(nlogn) : sort() 함수의 시간복잡도
+// O(1) : 추가적인 데이터구조나 배열을 사용하지 않음
+
 /* [LeetCode] Contains Duplicate 
     : https://leetcode.com/problems/contains-duplicate/ */
 
