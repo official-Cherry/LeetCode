@@ -17,7 +17,6 @@ input: nums = [-1,1,0,-3,3]
 output: [0,0,9,0,0]
 */
 
-// Array 
 class Solution {
 public:
     vector<int> productExceptSelf(vector<int>& nums) {
